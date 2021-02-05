@@ -34,10 +34,20 @@ using namespace std;
 		int cont = 0;
 		vector <int> f;
 		vector <int>* puntero;
+		string acum;
 		  puntero = &f;
-		for(int i = 0 ; i < palabra.length();i++){
-			for(int j = 0; j <v.size();j++){
-				if(palabra.at(i)== v[j]){
+		  for(int i = 97; i <= 122; i++){
+		  	for(int s = 0; s< palabra.length();s++){
+		  		char carac = palabra.at(s);
+		  		if(i == (int)carac){
+		  			acum += carac;
+				  }
+			  }
+		  }
+		  
+		for(int i = 0 ; i < v.size();i++){
+			for(int j = 0; j <acum.length();j++){
+				if(acum.at(j) == v[i]){
 				cont++;	
 				}
 				
@@ -45,9 +55,12 @@ using namespace std;
 			}
 			f.push_back(cont);
 			cout<<cont<<" ";
+			cont = 0;
 				
 			
 		}
+		
+		
 		return puntero;
 	}
 	
